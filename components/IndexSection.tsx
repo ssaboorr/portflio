@@ -7,23 +7,23 @@ export default function IndexSection() {
     <section className="min-h-screen relative z-30">
       {/* Main Content - INDEX Section */}
       <>
-        <main className="relative z-30 px-6">
+        <main className="relative z-30 px-4 sm:px-6">
           {/* Large Typography with full width and responsive design */}
-          <div className="w-full text-center mt-16 mb-20 scroll-animate">
-            <h1 className="w-full text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight bg-gradient-to-r from-[#2C3E50] via-[#34495E] to-[#2C3E50] bg-clip-text text-transparent animate-pulse">
+          <div className="full-width-text mt-16 mb-20 scroll-animate">
+            <h1 className="text-[8rem] sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] font-black text-[#2C3E50] leading-none tracking-tight bg-gradient-to-r from-[#2C3E50] via-[#34495E] to-[#2C3E50] bg-clip-text text-transparent animate-pulse">
               ABDUS
             </h1>
-            <h1 className="w-full text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight -mt-8 bg-gradient-to-r from-[#2C3E50] via-[#E67E22] to-[#2C3E50] bg-clip-text text-transparent">
+            <h1 className="text-[8rem] sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] font-black text-[#2C3E50] leading-none tracking-tight -mt-4 sm:-mt-6 md:-mt-8 lg:-mt-10 xl:-mt-12 bg-gradient-to-r from-[#2C3E50] via-[#E67E22] to-[#2C3E50] bg-clip-text text-transparent">
               SABOOR
             </h1>
             {/* Subtitle */}
-            <p className="text-[#E67E22] text-lg sm:text-xl md:text-2xl font-medium mt-6 opacity-80">
+            <p className="subtitle text-[#E67E22] text-xl sm:text-2xl md:text-3xl font-medium mt-8 sm:mt-10 md:mt-12 opacity-80 px-4">
               Creative Developer & Designer
             </p>
           </div>
 
           {/* Hero Section with enhanced layout and styling */}
-          <div className="relative flex items-center justify-center min-h-[700px] max-w-7xl mx-auto mb-32 scroll-animate">
+          <div className="relative flex items-center justify-center min-h-[700px] max-w-7xl mx-auto mb-20 scroll-animate px-4">
             {/* Contact Info - Left Side with enhanced styling */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-30 scroll-animate">
               {/* Enhanced Barcode */}
@@ -58,15 +58,15 @@ export default function IndexSection() {
                 <img
                   src="/detailed-realistic-bird-illustration-small-songbir.png"
                   alt="Bird illustration"
-                  className="w-[500px] md:w-[600px] h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-[400px] sm:w-[500px] md:w-[600px] h-[280px] sm:h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
               
               <div className="absolute inset-0 flex items-center justify-center z-30">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                <div className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-xl border border-white/20">
                   <div className="text-[#2C3E50] text-sm mb-2 font-medium">M./</div>
-                  <div className="text-[#E67E22] text-4xl md:text-6xl font-script mb-2 drop-shadow-lg">
+                  <div className="text-[#E67E22] text-2xl sm:text-4xl md:text-6xl font-script mb-2 drop-shadow-lg">
                     Creative Developer
                   </div>
                   <div className="text-[#2C3E50] text-xs opacity-70">Portfolio 2025</div>
@@ -75,7 +75,7 @@ export default function IndexSection() {
             </div>
 
             {/* Description - Right Side exactly as shown in image */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-30 scroll-animate">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-30 scroll-animate">
               <div className="space-y-6">
                 <p className="text-[#2C3E50] text-sm leading-relaxed">
                   With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in
@@ -103,12 +103,12 @@ export default function IndexSection() {
           </div>
 
           {/* Enhanced Bottom Navigation with better styling */}
-          <div className="absolute bottom-12 left-6 right-6 flex justify-between scroll-animate">
-            <div className="bg-white/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
-              <div className="text-[#2C3E50] text-2xl font-bold">‹</div>
+          <div className="absolute bottom-12 left-4 sm:left-6 right-4 sm:right-6 flex justify-between scroll-animate">
+            <div className="bg-white/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+              <div className="text-[#2C3E50] text-xl sm:text-2xl font-bold">‹</div>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
-              <div className="text-[#2C3E50] text-2xl font-bold">›</div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+              <div className="text-[#2C3E50] text-xl sm:text-2xl font-bold">›</div>
             </div>
           </div>
         </main>
