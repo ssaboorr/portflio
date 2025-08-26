@@ -22,11 +22,11 @@ export default function IndexSection() {
             </p>
           </div>
 
-          {/* Hero Section with enhanced layout and styling */}
-          <div className="relative flex items-center justify-center min-h-[700px] max-w-7xl mx-auto mb-20 scroll-animate px-4">
-            {/* Contact Info - Left Side with enhanced styling */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-30 scroll-animate">
-              {/* Enhanced Barcode */}
+          {/* Hero Section - Exactly as shown in image */}
+          <div className="relative flex items-center justify-center min-h-[800px] max-w-7xl mx-auto mb-20 scroll-animate px-4">
+            {/* Contact Info - Left Side */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-30 scroll-animate gap-animate">
+              {/* Barcode */}
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-[#2C3E50]/20">
                 <div className="flex space-x-1 mb-2">
                   {Array.from({ length: 30 }).map((_, i) => (
@@ -43,6 +43,7 @@ export default function IndexSection() {
                 <div className="text-[#2C3E50] text-sm font-mono">+31 (0)6 28839393</div>
               </div>
               
+              {/* Skills Text */}
               <div className="bg-gradient-to-r from-[#E67E22]/10 to-[#2C3E50]/10 backdrop-blur-sm rounded-lg p-4 border border-[#E67E22]/20">
                 <div className="text-[#2C3E50] text-sm font-medium">
                   Skilled in both
@@ -52,21 +53,23 @@ export default function IndexSection() {
               </div>
             </div>
 
-            {/* Enhanced Bird Image with better overlay */}
-            <div className="relative scroll-animate group">
+            {/* Large Centered Bird Image with Overlapping Text */}
+            <div className="relative scroll-animate group z-20">
+              {/* Main Bird Image - Larger and Centered */}
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src="/detailed-realistic-bird-illustration-small-songbir.png"
                   alt="Bird illustration"
-                  className="w-[400px] sm:w-[500px] md:w-[600px] h-[280px] sm:h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] h-[350px] sm:h-[420px] md:h-[490px] lg:h-[560px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
               
-              <div className="absolute inset-0 flex items-center justify-center z-30">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-xl border border-white/20">
+              {/* Overlapping Text - Positioned over the bird as shown in image */}
+              <div className="absolute top-8 right-8 z-30 gap-animate">
+                <div className="text-left">
                   <div className="text-[#2C3E50] text-sm mb-2 font-medium">M./</div>
-                  <div className="text-[#E67E22] text-2xl sm:text-4xl md:text-6xl font-script mb-2 drop-shadow-lg">
+                  <div className="text-[#E67E22] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script mb-2 drop-shadow-lg leading-tight">
                     Creative Developer
                   </div>
                   <div className="text-[#2C3E50] text-xs opacity-70">Portfolio 2025</div>
@@ -74,8 +77,8 @@ export default function IndexSection() {
               </div>
             </div>
 
-            {/* Description - Right Side exactly as shown in image */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-30 scroll-animate">
+            {/* Description Text - Right Side overlapping the bird */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-30 scroll-animate gap-animate">
               <div className="space-y-6">
                 <p className="text-[#2C3E50] text-sm leading-relaxed">
                   With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in
@@ -91,7 +94,7 @@ export default function IndexSection() {
                   communicate in the digital space. Every vision deserves to shine online, and that's the goal.
                 </p>
 
-                {/* Bottom Right Info exactly as in image */}
+                {/* Coordinates - Top Right as shown in image */}
                 <div className="mt-8 text-right">
                   <div className="text-[#2C3E50] text-xs">
                     <div>/ 51.5270258</div>

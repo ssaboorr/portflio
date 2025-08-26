@@ -77,6 +77,27 @@ export default function Portfolio() {
     return () => observer.disconnect()
   }, [activeSection, scrollDirection])
 
+  // Gap Animation Observer
+  useEffect(() => {
+    const gapObserverOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -100px 0px",
+    }
+
+    const gapObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible")
+        }
+      })
+    }, gapObserverOptions)
+
+    const gapElements = document.querySelectorAll(".gap-animate")
+    gapElements.forEach((el) => gapObserver.observe(el))
+
+    return () => gapObserver.disconnect()
+  }, [activeSection])
+
   return (
     <div className="min-h-screen bg-[#E8DDD4] relative overflow-hidden">
       {/* Animated Background - Lowest z-index */}
