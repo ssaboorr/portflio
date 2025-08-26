@@ -5,7 +5,7 @@ import Footer from "./Footer"
 export default function ContactSection() {
   return (
     <>
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-30 min-h-screen">
         <div className="px-6 py-20">
           {/* Enhanced Header */}
           <div className="text-center mb-20 scroll-animate">

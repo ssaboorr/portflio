@@ -79,22 +79,23 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-[#E8DDD4] relative overflow-hidden">
-      {/* Animated Background */}
+      {/* Animated Background - Lowest z-index */}
       <AnimatedBackground />
       
-      {/* Terminal Background (kept for compatibility) */}
+      {/* Terminal Background (kept for compatibility) - Above animated background */}
       <div className="fixed inset-0 opacity-20 pointer-events-none z-10">
         <div className="terminal-background w-full h-full"></div>
       </div>
 
+      {/* Header - Highest z-index */}
       <Header 
         activeSection={activeSection}
         isScrolled={isScrolled}
         onNavClick={handleNavClick}
       />
 
+      {/* Main Content - Above background, below header */}
       <div className="pt-20 relative z-20">
-        {/* Main Content */}
         <div className={`transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           {activeSection === "index" && <IndexSection />}
           {activeSection === "work" && <WorkSection />}

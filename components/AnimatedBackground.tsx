@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Squares from "./ui/webBackground"
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -111,11 +112,12 @@ export default function AnimatedBackground() {
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0">
+   
+    <div className="fixed inset-0 pointer-events-none z-0 w-full h-full">
       {/* Animated Canvas Background */}
       <canvas
         ref={canvasRef}
-        className="w-full h-full"
+        className="w-full h-full absolute inset-0"
         style={{ background: 'transparent' }}
       />
       
@@ -194,6 +196,6 @@ export default function AnimatedBackground() {
       
       {/* Animated Border Effect */}
       <div className="absolute inset-0 animated-border opacity-5" />
-    </div>
+    // </div>
   )
 }

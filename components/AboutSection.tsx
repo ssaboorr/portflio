@@ -13,7 +13,7 @@ export default function AboutSection() {
 
   return (
     <>
-      <div className="relative z-10" ref={aboutRef}>
+      <div className="relative z-30" ref={aboutRef}>
         {/* Enhanced About Header Section */}
         <div className="px-6 py-12">
           <div className="text-center mb-12 scroll-animate">
@@ -25,7 +25,7 @@ export default function AboutSection() {
                 <span
                   className={`inline-block transition-transform duration-1000 ${isAboutLoaded ? "translate-x-[-100px]" : ""}`}
                 >
-                  ABDUS
+                  AB
                 </span>
                 <span
                   className={`inline-block mx-4 text-[#E67E22] text-3xl md:text-4xl font-script transition-opacity duration-1000 delay-500 ${isAboutLoaded ? "opacity-100" : "opacity-0"}`}
@@ -35,7 +35,7 @@ export default function AboutSection() {
                 <span
                   className={`inline-block transition-transform duration-1000 ${isAboutLoaded ? "translate-x-[100px]" : ""}`}
                 >
-                  SABOOR
+                  DUS
                 </span>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function AboutSection() {
             </div>
 
             {/* Enhanced Description Text - Center Right */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-10 scroll-animate">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-30 scroll-animate">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
                 <p className="text-[#2C3E50] text-sm leading-relaxed mb-6">
                   Specializing in impressive online experiences, clients receive tailored solutions to elevate their
@@ -97,7 +97,7 @@ export default function AboutSection() {
             </div>
 
             {/* Enhanced Left Side Text */}
-            <div className="absolute left-0 top-1/4 max-w-xs z-10 scroll-animate">
+            <div className="absolute left-0 top-1/4 max-w-xs z-30 scroll-animate">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
                 <div className="text-[#2C3E50] text-sm mb-2 font-medium">M./</div>
                 <p className="text-[#2C3E50] text-sm leading-relaxed">

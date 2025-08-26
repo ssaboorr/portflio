@@ -4,10 +4,10 @@ import Footer from "./Footer"
 
 export default function IndexSection() {
   return (
-    <section className="min-h-screen relative">
+    <section className="min-h-screen relative z-30">
       {/* Main Content - INDEX Section */}
       <>
-        <main className="relative z-10 px-6">
+        <main className="relative z-30 px-6">
           {/* Large Typography with full width and responsive design */}
           <div className="w-full text-center mt-16 mb-20 scroll-animate">
             <h1 className="w-full text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight bg-gradient-to-r from-[#2C3E50] via-[#34495E] to-[#2C3E50] bg-clip-text text-transparent animate-pulse">
@@ -25,7 +25,7 @@ export default function IndexSection() {
           {/* Hero Section with enhanced layout and styling */}
           <div className="relative flex items-center justify-center min-h-[700px] max-w-7xl mx-auto mb-32 scroll-animate">
             {/* Contact Info - Left Side with enhanced styling */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-10 scroll-animate">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-30 scroll-animate">
               {/* Enhanced Barcode */}
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-[#2C3E50]/20">
                 <div className="flex space-x-1 mb-2">
@@ -75,7 +75,7 @@ export default function IndexSection() {
             </div>
 
             {/* Description - Right Side exactly as shown in image */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-10 scroll-animate">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-30 scroll-animate">
               <div className="space-y-6">
                 <p className="text-[#2C3E50] text-sm leading-relaxed">
                   With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in

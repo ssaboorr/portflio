@@ -5,7 +5,7 @@ import Footer from "./Footer"
 export default function WorkSection() {
   return (
     <>
-      <main className="relative z-10 px-6 py-20">
+      <main className="relative z-30 px-6 py-20">
         {/* Enhanced Header */}
         <div className="text-center mb-20 scroll-animate">
           <h2 className="text-[6rem] sm:text-[8rem] md:text-[10rem] font-black text-[#2C3E50] leading-none tracking-tight inline-block bg-gradient-to-r from-[#2C3E50] via-[#E67E22] to-[#2C3E50] bg-clip-text text-transparent">

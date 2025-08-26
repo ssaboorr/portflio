@@ -4,7 +4,7 @@ import { Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-[#2C3E50] to-[#34495E] px-6 py-20 mt-16 shadow-2xl">
+    <footer className="bg-gradient-to-br from-[#2C3E50] to-[#34495E] px-6 py-20 mt-16 shadow-2xl relative z-30">
       {/* Enhanced Scrolling Tags */}
       <div className="overflow-hidden whitespace-nowrap mb-20">
         <div className="inline-flex space-x-8 animate-scroll">
