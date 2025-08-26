@@ -8,79 +8,108 @@ export default function IndexSection() {
       {/* Main Content - INDEX Section */}
       <>
         <main className="relative z-10 px-6">
-          {/* Large Typography */}
-          <div className="text-center mt-8 mb-12 scroll-animate">
-            <h1 className="text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight">ABDUS</h1>
-            <h1 className="text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight -mt-8">SABOOR</h1>
+          {/* Large Typography with full width and responsive design */}
+          <div className="w-full text-center mt-16 mb-20 scroll-animate">
+            <h1 className="w-full text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight bg-gradient-to-r from-[#2C3E50] via-[#34495E] to-[#2C3E50] bg-clip-text text-transparent animate-pulse">
+              ABDUS
+            </h1>
+            <h1 className="w-full text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black text-[#2C3E50] leading-none tracking-tight -mt-8 bg-gradient-to-r from-[#2C3E50] via-[#E67E22] to-[#2C3E50] bg-clip-text text-transparent">
+              SABOOR
+            </h1>
+            {/* Subtitle */}
+            <p className="text-[#E67E22] text-lg sm:text-xl md:text-2xl font-medium mt-6 opacity-80">
+              Creative Developer & Designer
+            </p>
           </div>
 
-          {/* Hero Section with Centered Bird and Overlapping Text */}
-          <div className="relative flex items-center justify-center min-h-[600px] max-w-7xl mx-auto mb-32 scroll-animate">
-            {/* Contact Info - Left Side */}
+          {/* Hero Section with enhanced layout and styling */}
+          <div className="relative flex items-center justify-center min-h-[700px] max-w-7xl mx-auto mb-32 scroll-animate">
+            {/* Contact Info - Left Side with enhanced styling */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-10 scroll-animate">
-              {/* Barcode */}
-              <div className="flex space-x-1">
-                {Array.from({ length: 30 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="bg-[#2C3E50]"
-                    style={{
-                      width: Math.random() > 0.5 ? "2px" : "1px",
-                      height: "60px",
-                    }}
-                  />
-                ))}
+              {/* Enhanced Barcode */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-[#2C3E50]/20">
+                <div className="flex space-x-1 mb-2">
+                  {Array.from({ length: 30 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="bg-[#2C3E50] rounded-sm"
+                      style={{
+                        width: Math.random() > 0.5 ? "3px" : "2px",
+                        height: "60px",
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className="text-[#2C3E50] text-sm font-mono">+31 (0)6 28839393</div>
               </div>
-              <div className="text-[#2C3E50] text-sm">+31 (0)6 28839393</div>
-              <div className="text-[#2C3E50] text-sm italic">
-                Skilled in both
-                <br />
-                <span className="italic">developing</span> and <span className="italic">design</span>
-              </div>
-            </div>
-
-            <div className="relative scroll-animate">
-              <img
-                src="/detailed-realistic-bird-illustration-small-songbir.png"
-                alt="Bird illustration"
-                className="w-[600px] h-[400px] object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center z-30">
-                <div className="text-center">
-                  <div className="text-[#2C3E50] text-sm mb-2">M./</div>
-                  <div className="text-[#E67E22] text-6xl font-script mb-4 drop-shadow-lg">Creative Developer</div>
+              
+              <div className="bg-gradient-to-r from-[#E67E22]/10 to-[#2C3E50]/10 backdrop-blur-sm rounded-lg p-4 border border-[#E67E22]/20">
+                <div className="text-[#2C3E50] text-sm font-medium">
+                  Skilled in both
+                  <br />
+                  <span className="text-[#E67E22] font-bold">developing</span> and <span className="text-[#E67E22] font-bold">design</span>
                 </div>
               </div>
             </div>
 
-            {/* Description - Right Side */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-10 scroll-animate">
-              <p className="text-[#2C3E50] text-sm leading-relaxed mb-6">
-                With a strong focus on creative development, digital stories are crafted to engage. Expertise in
-                interactive animations and detailed design enables the creation of websites that stand out and leave
-                a lasting impact.
-              </p>
-              <p className="text-[#2C3E50] text-sm leading-relaxed mb-6">
-                Specializing in impressive online experiences, clients receive tailored solutions to elevate their
-                digital presence. Each project aims to capture attention and engage audiences effectively.
-              </p>
-              <p className="text-[#2C3E50] text-sm leading-relaxed">
-                By delivering unique and impressive websites, clients can confidently showcase their brand and
-                communicate in the digital space. Every vision deserves to shine online, and that's the goal.
-              </p>
+            {/* Enhanced Bird Image with better overlay */}
+            <div className="relative scroll-animate group">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src="/detailed-realistic-bird-illustration-small-songbir.png"
+                  alt="Bird illustration"
+                  className="w-[500px] md:w-[600px] h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              </div>
+              
+              <div className="absolute inset-0 flex items-center justify-center z-30">
+                <div className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                  <div className="text-[#2C3E50] text-sm mb-2 font-medium">M./</div>
+                  <div className="text-[#E67E22] text-4xl md:text-6xl font-script mb-2 drop-shadow-lg">
+                    Creative Developer
+                  </div>
+                  <div className="text-[#2C3E50] text-xs opacity-70">Portfolio 2025</div>
+                </div>
+              </div>
+            </div>
 
-              {/* Bottom Right Info */}
-              <div className="mt-8 text-right text-[#2C3E50] text-xs">
-                <div>/ 51.5270258</div>
-                <div>// 5.9753635</div>
+            {/* Description - Right Side exactly as shown in image */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-10 scroll-animate">
+              <div className="space-y-6">
+                <p className="text-[#2C3E50] text-sm leading-relaxed">
+                  With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in
+                  interactive animations and detailed design enables the creation of websites that stand out and leave
+                  a lasting impact.
+                </p>
+                <p className="text-[#2C3E50] text-sm leading-relaxed">
+                  Specializing in impressive online experiences, clients receive tailored solutions to elevate their
+                  digital presence. Each project aims to capture attention and engage audiences effectively.
+                </p>
+                <p className="text-[#2C3E50] text-sm leading-relaxed">
+                  By delivering unique and impressive websites, clients can confidently showcase their brand and
+                  communicate in the digital space. Every vision deserves to shine online, and that's the goal.
+                </p>
+
+                {/* Bottom Right Info exactly as in image */}
+                <div className="mt-8 text-right">
+                  <div className="text-[#2C3E50] text-xs">
+                    <div>/ 51.5270258</div>
+                    <div>// 5.9753635</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Navigation Arrows */}
-          <div className="absolute bottom-8 left-6 right-6 flex justify-between scroll-animate">
-            <div className="text-[#2C3E50] text-2xl cursor-pointer hover:opacity-70 transition-opacity">‹</div>
-            <div className="text-[#2C3E50] text-2xl cursor-pointer hover:opacity-70 transition-opacity">›</div>
+          {/* Enhanced Bottom Navigation with better styling */}
+          <div className="absolute bottom-12 left-6 right-6 flex justify-between scroll-animate">
+            <div className="bg-white/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+              <div className="text-[#2C3E50] text-2xl font-bold">‹</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+              <div className="text-[#2C3E50] text-2xl font-bold">›</div>
+            </div>
           </div>
         </main>
         <Footer />
