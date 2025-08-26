@@ -624,6 +624,31 @@ html {
   }
 }
 
+/* Custom PixelTransition Styling */
+.custom-pixel-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: inherit !important;
+}
+
+.custom-pixel-card .pixelated-image-card__pixel {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 2px;
+}
+
+/* Remove default PixelTransition styling when used as custom-pixel-card */
+.custom-pixel-card.bg-\[#222\] {
+  background-color: transparent !important;
+}
+
+.custom-pixel-card.border-2 {
+  border: none !important;
+}
+
+.custom-pixel-card.rounded-\[15px\] {
+  border-radius: inherit !important;
+}
+
 /* Gap Animation for Hero Section */
 .gap-animate {
   opacity: 0;

@@ -1,110 +1,159 @@
-// src/components/PixelatedImage.tsx
-import React, { useState, useRef, useEffect, FC, MouseEventHandler } from 'react';
+import React, { useRef, useEffect, useState, CSSProperties } from "react";
+import { gsap } from "gsap";
 
-interface PixelatedImageProps {
-  src: string;
-  alt: string;
-  pixelSize?: number;
-  animationSpeed?: number;
+interface PixelTransitionProps {
+  firstContent: React.ReactNode;
+  secondContent: React.ReactNode;
+  gridSize?: number;
+  pixelColor?: string;
+  animationStepDuration?: number;
   className?: string;
+  style?: CSSProperties;
+  aspectRatio?: string;
 }
 
-const PixelatedImage: FC<PixelatedImageProps> = ({
-  src,
-  alt,
-  pixelSize = 20,
-  animationSpeed = 0.8,
-  className = '',
+const PixelTransition: React.FC<PixelTransitionProps> = ({
+  firstContent,
+  secondContent,
+  gridSize = 7,
+  pixelColor = "currentColor",
+  animationStepDuration = 0.3,
+  className = "",
+  style = {},
+  aspectRatio = "100%",
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const [isHovering, setIsHovering] = useState<boolean>(false);
-  const currentPixelSize = useRef<number>(pixelSize);
-  const animationFrameId = useRef<number | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const pixelGridRef = useRef<HTMLDivElement | null>(null);
+  const activeRef = useRef<HTMLDivElement | null>(null);
+  const delayedCallRef = useRef<gsap.core.Tween | null>(null);
+
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const isTouchDevice =
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.matchMedia("(pointer: coarse)").matches;
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const image = imageRef.current;
+    const pixelGridEl = pixelGridRef.current;
+    if (!pixelGridEl) return;
 
-    if (!canvas || !image) return;
+    pixelGridEl.innerHTML = "";
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        const pixel = document.createElement("div");
+        pixel.classList.add("pixelated-image-card__pixel");
+        pixel.classList.add("absolute", "hidden");
+        pixel.style.backgroundColor = pixelColor;
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const size = 100 / gridSize;
+        pixel.style.width = `${size}%`;
+        pixel.style.height = `${size}%`;
+        pixel.style.left = `${col * size}%`;
+        pixel.style.top = `${row * size}%`;
 
-      if (isHovering) {
-        currentPixelSize.current = Math.max(1, currentPixelSize.current - animationSpeed);
-      } else {
-        currentPixelSize.current = Math.min(pixelSize, currentPixelSize.current + animationSpeed);
+        pixelGridEl.appendChild(pixel);
       }
+    }
+  }, [gridSize, pixelColor]);
 
-      if (image.complete && currentPixelSize.current > 0) {
-        const w = image.width / currentPixelSize.current;
-        const h = image.height / currentPixelSize.current;
+  const animatePixels = (activate: boolean): void => {
+    setIsActive(activate);
 
-        ctx.drawImage(image, 0, 0, w, h);
-        ctx.drawImage(canvas, 0, 0, w, h, 0, 0, image.width, image.height);
-      }
+    const pixelGridEl = pixelGridRef.current;
+    const activeEl = activeRef.current;
+    if (!pixelGridEl || !activeEl) return;
 
-      if ((isHovering && currentPixelSize.current > 1) || (!isHovering && currentPixelSize.current < pixelSize)) {
-        animationFrameId.current = requestAnimationFrame(animate);
-      }
-    };
+    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>(
+      ".pixelated-image-card__pixel"
+    );
+    if (!pixels.length) return;
 
-    const handleImageLoad = () => {
-      canvas.width = image.width;
-      canvas.height = image.height;
-      animate();
-    };
-
-    image.onload = handleImageLoad;
-
-    // In case the image is already loaded
-    if (image.complete) {
-      handleImageLoad();
+    gsap.killTweensOf(pixels);
+    if (delayedCallRef.current) {
+      delayedCallRef.current.kill();
     }
 
-    return () => {
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
-    };
-  }, [isHovering, pixelSize, animationSpeed]);
+    gsap.set(pixels, { display: "none" });
 
-  const handleMouseEnter: MouseEventHandler<HTMLDivElement> = () => setIsHovering(true);
-  const handleMouseLeave: MouseEventHandler<HTMLDivElement> = () => setIsHovering(false);
+    const totalPixels = pixels.length;
+    const staggerDuration = animationStepDuration / totalPixels;
+
+    gsap.to(pixels, {
+      display: "block",
+      duration: 0,
+      stagger: {
+        each: staggerDuration,
+        from: "random",
+      },
+    });
+
+    delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
+      activeEl.style.display = activate ? "block" : "none";
+      activeEl.style.pointerEvents = activate ? "none" : "";
+    });
+
+    gsap.to(pixels, {
+      display: "none",
+      duration: 0,
+      delay: animationStepDuration,
+      stagger: {
+        each: staggerDuration,
+        from: "random",
+      },
+    });
+  };
+
+  const handleMouseEnter = (): void => {
+    if (!isActive) animatePixels(true);
+  };
+  const handleMouseLeave = (): void => {
+    if (isActive) animatePixels(false);
+  };
+  const handleClick = (): void => {
+    animatePixels(!isActive);
+  };
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`relative inline-block w-full h-full ${className}`}
-      style={{ 
-        display: 'inline-block', 
-        position: 'relative',
-        width: '100%',
-        height: '100%'
-      }}
+      ref={containerRef}
+      className={`
+        ${className}
+        bg-[#222]
+        text-white
+        rounded-[15px]
+        border-2
+        border-white
+        w-full
+        h-full
+        max-w-full
+        relative
+        overflow-hidden
+      `}
+      style={style}
+      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
+      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
+      onClick={isTouchDevice ? handleClick : undefined}
     >
-      <canvas 
-        ref={canvasRef} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        style={{ 
-          width: '100%', 
-          height: '100%',
-          borderRadius: 'inherit'
-        }}
-      />
-      <img
-        ref={imageRef}
-        src={src}
-        alt={alt}
-        style={{ display: 'none' }}
+      <div style={{ paddingTop: aspectRatio }} />
+
+      <div className="absolute inset-0 w-full h-full">{firstContent}</div>
+
+      <div
+        ref={activeRef}
+        className="absolute inset-0 w-full h-full z-[2]"
+        style={{ display: "none" }}
+      >
+        {secondContent}
+      </div>
+
+      <div
+        ref={pixelGridRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-[3]"
       />
     </div>
   );
 };
 
-export default PixelatedImage;
+export default PixelTransition;

@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from "./Footer"
-import PixelatedImage from "./pixalated"
+import PixelTransition from "./pixalated"
 
 export default function IndexSection() {
   return (
@@ -56,14 +56,28 @@ export default function IndexSection() {
 
             {/* Large Centered Bird Image with Overlapping Text */}
             <div className="relative scroll-animate group z-20">
-              {/* Main Bird Image - Larger and Centered using PixelatedImage */}
+              {/* Main Bird Image - Larger and Centered using PixelTransition */}
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <div className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] h-[350px] sm:h-[420px] md:h-[490px] lg:h-[560px]">
-                  <PixelatedImage
-                    src="/detailed-realistic-bird-illustration-small-songbir.png"
-                    alt="Bird illustration"
-                    pixelSize={15}
-                    animationSpeed={1.2}
+                  <PixelTransition
+                    firstContent={
+                      <img
+                        src="/detailed-realistic-bird-illustration-small-songbir.png"
+                        alt="Bird illustration"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    }
+                    secondContent={
+                      <img
+                        src="/detailed-realistic-bird-illustration-small-songbir.png"
+                        alt="Bird illustration"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    }
+                    gridSize={20}
+                    pixelColor='#ffffff'
+                    animationStepDuration={0.4}
+                    className="custom-pixel-card w-full h-full"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
