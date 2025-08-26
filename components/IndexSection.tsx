@@ -85,36 +85,36 @@ export default function IndexSection() {
               
               {/* Overlapping Text - Positioned over the bird as shown in image */}
               <div className="absolute top-8 right-8 z-30 gap-animate">
-                <div className="text-left">
-                  <div className="text-[#2C3E50] text-sm mb-2 font-medium">M./</div>
-                  <div className="text-[#E67E22] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script mb-2 drop-shadow-lg leading-tight">
+                <div className="text-left bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-white/30">
+                  <div className="text-[#2C3E50] text-base mb-3 font-semibold tracking-wide">M./</div>
+                  <div className="text-[#E67E22] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script mb-3 drop-shadow-lg leading-tight font-bold">
                     Creative Developer
                   </div>
-                  <div className="text-[#2C3E50] text-xs opacity-70">Portfolio 2025</div>
+                  <div className="text-[#2C3E50] text-sm opacity-80 font-medium">Portfolio 2025</div>
                 </div>
               </div>
             </div>
 
             {/* Description Text - Right Side overlapping the bird */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-sm z-30 scroll-animate gap-animate">
-              <div className="space-y-6">
-                <p className="text-[#2C3E50] text-sm leading-relaxed">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-30 scroll-animate gap-animate">
+              <div className="space-y-6 bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-2xl border border-white/30">
+                <p className="text-[#2C3E50] text-base sm:text-lg leading-relaxed font-medium">
                   With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in
                   interactive animations and detailed design enables the creation of websites that stand out and leave
                   a lasting impact.
                 </p>
-                <p className="text-[#2C3E50] text-sm leading-relaxed">
+                <p className="text-[#2C3E50] text-base sm:text-lg leading-relaxed font-medium">
                   Specializing in impressive online experiences, clients receive tailored solutions to elevate their
                   digital presence. Each project aims to capture attention and engage audiences effectively.
                 </p>
-                <p className="text-[#2C3E50] text-sm leading-relaxed">
+                <p className="text-[#2C3E50] text-base sm:text-lg leading-relaxed font-medium">
                   By delivering unique and impressive websites, clients can confidently showcase their brand and
                   communicate in the digital space. Every vision deserves to shine online, and that's the goal.
                 </p>
 
                 {/* Coordinates - Top Right as shown in image */}
                 <div className="mt-8 text-right">
-                  <div className="text-[#2C3E50] text-xs">
+                  <div className="text-[#2C3E50] text-sm font-mono font-semibold">
                     <div>/ 51.5270258</div>
                     <div>// 5.9753635</div>
                   </div>
