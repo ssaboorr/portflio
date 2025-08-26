@@ -1,6 +1,7 @@
 "use client"
 
 import Footer from "./Footer"
+import PixelatedImage from "./pixalated"
 
 export default function IndexSection() {
   return (
@@ -55,14 +56,17 @@ export default function IndexSection() {
 
             {/* Large Centered Bird Image with Overlapping Text */}
             <div className="relative scroll-animate group z-20">
-              {/* Main Bird Image - Larger and Centered */}
+              {/* Main Bird Image - Larger and Centered using PixelatedImage */}
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  src="/detailed-realistic-bird-illustration-small-songbir.png"
-                  alt="Bird illustration"
-                  className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] h-[350px] sm:h-[420px] md:h-[490px] lg:h-[560px] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] h-[350px] sm:h-[420px] md:h-[490px] lg:h-[560px]">
+                  <PixelatedImage
+                    src="/detailed-realistic-bird-illustration-small-songbir.png"
+                    alt="Bird illustration"
+                    pixelSize={15}
+                    animationSpeed={1.2}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
               
               {/* Overlapping Text - Positioned over the bird as shown in image */}

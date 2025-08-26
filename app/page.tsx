@@ -101,7 +101,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#E8DDD4] relative overflow-hidden">
       {/* Animated Background - Lowest z-index */}
-      <AnimatedBackground />
+      {/* <AnimatedBackground /> */}
       
       {/* Terminal Background (kept for compatibility) - Above animated background */}
       <div className="fixed inset-0 opacity-20 pointer-events-none z-10">

@@ -1,75 +1,107 @@
-// src/components/PixelatedImage.js
-import React, { useState, useRef, useEffect } from 'react';
+// src/components/PixelatedImage.tsx
+import React, { useState, useRef, useEffect, FC, MouseEventHandler } from 'react';
 
-const PixelatedImage = ({ src, alt, pixelSize = 20, animationSpeed = 0.8 }) => {
-  const canvasRef = useRef(null);
-  const imageRef = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const currentPixelSize = useRef(pixelSize);
+interface PixelatedImageProps {
+  src: string;
+  alt: string;
+  pixelSize?: number;
+  animationSpeed?: number;
+  className?: string;
+}
+
+const PixelatedImage: FC<PixelatedImageProps> = ({
+  src,
+  alt,
+  pixelSize = 20,
+  animationSpeed = 0.8,
+  className = '',
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+  const currentPixelSize = useRef<number>(pixelSize);
+  const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
     const image = imageRef.current;
 
+    if (!canvas || !image) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
     const animate = () => {
-      // Clear the canvas for the next frame
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       if (isHovering) {
-        // Decrease pixel size towards the original image
         currentPixelSize.current = Math.max(1, currentPixelSize.current - animationSpeed);
       } else {
-        // Increase pixel size to the target pixelation
         currentPixelSize.current = Math.min(pixelSize, currentPixelSize.current + animationSpeed);
       }
 
-      // Draw the image with the current pixelation level
       if (image.complete && currentPixelSize.current > 0) {
         const w = image.width / currentPixelSize.current;
         const h = image.height / currentPixelSize.current;
 
-        // Draw a scaled-down version of the image
         ctx.drawImage(image, 0, 0, w, h);
-        
-        // Stretch the scaled-down version back to full size
         ctx.drawImage(canvas, 0, 0, w, h, 0, 0, image.width, image.height);
       }
 
-      // Continue the animation loop if needed
-      if (currentPixelSize.current > 1 && isHovering) {
-        requestAnimationFrame(animate);
-      } else if (currentPixelSize.current < pixelSize && !isHovering) {
-        requestAnimationFrame(animate);
+      if ((isHovering && currentPixelSize.current > 1) || (!isHovering && currentPixelSize.current < pixelSize)) {
+        animationFrameId.current = requestAnimationFrame(animate);
       }
     };
 
-    // Load the image and start the animation
-    image.onload = () => {
+    const handleImageLoad = () => {
       canvas.width = image.width;
       canvas.height = image.height;
       animate();
     };
-    
-    // Start animation loop on mount
-    animate();
+
+    image.onload = handleImageLoad;
+
+    // In case the image is already loaded
+    if (image.complete) {
+      handleImageLoad();
+    }
+
+    return () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
   }, [isHovering, pixelSize, animationSpeed]);
 
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+  const handleMouseEnter: MouseEventHandler<HTMLDivElement> = () => setIsHovering(true);
+  const handleMouseLeave: MouseEventHandler<HTMLDivElement> = () => setIsHovering(false);
 
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ display: 'inline-block', position: 'relative' }}
+      className={`relative inline-block w-full h-full ${className}`}
+      style={{ 
+        display: 'inline-block', 
+        position: 'relative',
+        width: '100%',
+        height: '100%'
+      }}
     >
-      <canvas ref={canvasRef} />
+      <canvas 
+        ref={canvasRef} 
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        style={{ 
+          width: '100%', 
+          height: '100%',
+          borderRadius: 'inherit'
+        }}
+      />
       <img
         ref={imageRef}
         src={src}
         alt={alt}
-        style={{ display: 'none' }} // Hide the original image
+        style={{ display: 'none' }}
       />
     </div>
   );
