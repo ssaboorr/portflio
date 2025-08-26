@@ -5,7 +5,7 @@ import PixelTransition from "./pixalated"
 
 export default function IndexSection() {
   return (
-    <section className="min-h-screen relative z-30">
+    <section className="min-h-screen relative z-30 bg-[#8B7355]">
       {/* Main Content - INDEX Section */}
       <>
         <main className="relative z-30 px-4 sm:px-6">
@@ -28,7 +28,7 @@ export default function IndexSection() {
             {/* Contact Info - Left Side */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col space-y-8 z-30 scroll-animate gap-animate">
               {/* Barcode */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-[#2C3E50]/20">
+              <div className="bg-[#F5F5DC]/90 backdrop-blur-md rounded-lg p-4 border border-[#2C3E50]/20 shadow-lg">
                 <div className="flex space-x-1 mb-2">
                   {Array.from({ length: 30 }).map((_, i) => (
                     <div
@@ -45,7 +45,7 @@ export default function IndexSection() {
               </div>
               
               {/* Skills Text */}
-              <div className="bg-gradient-to-r from-[#E67E22]/10 to-[#2C3E50]/10 backdrop-blur-sm rounded-lg p-4 border border-[#E67E22]/20">
+              <div className="bg-gradient-to-r from-[#E67E22]/20 to-[#2C3E50]/20 backdrop-blur-md rounded-lg p-4 border border-[#E67E22]/30 shadow-lg">
                 <div className="text-[#2C3E50] text-sm font-medium">
                   Skilled in both
                   <br />
@@ -85,7 +85,7 @@ export default function IndexSection() {
               
               {/* Overlapping Text - Positioned over the bird as shown in image */}
               <div className="absolute top-8 right-8 z-30 gap-animate">
-                <div className="text-left bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-white/30">
+                <div className="text-left bg-[#F5F5DC]/95 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-[#2C3E50]/20">
                   <div className="text-[#2C3E50] text-base mb-3 font-semibold tracking-wide">M./</div>
                   <div className="text-[#E67E22] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script mb-3 drop-shadow-lg leading-tight font-bold">
                     Creative Developer
@@ -97,7 +97,7 @@ export default function IndexSection() {
 
             {/* Description Text - Right Side overlapping the bird */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 max-w-md z-30 scroll-animate gap-animate">
-              <div className="space-y-6 bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-2xl border border-white/30">
+              <div className="space-y-6 bg-[#F5F5DC]/90 backdrop-blur-md rounded-xl p-6 shadow-2xl border border-[#2C3E50]/20">
                 <p className="text-[#2C3E50] text-base sm:text-lg leading-relaxed font-medium">
                   With a strong focus on <span className="text-[#E67E22] font-bold">creative development</span>, digital stories are crafted to engage. Expertise in
                   interactive animations and detailed design enables the creation of websites that stand out and leave
@@ -125,10 +125,10 @@ export default function IndexSection() {
 
           {/* Enhanced Bottom Navigation with better styling */}
           <div className="absolute bottom-12 left-4 sm:left-6 right-4 sm:right-6 flex justify-between scroll-animate">
-            <div className="bg-white/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+            <div className="bg-[#F5F5DC]/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-[#F5F5DC] transition-all duration-300 shadow-lg border border-[#2C3E50]/20 hover:scale-110">
               <div className="text-[#2C3E50] text-xl sm:text-2xl font-bold">‹</div>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300 shadow-lg border border-white/20 hover:scale-110">
+            <div className="bg-[#F5F5DC]/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center cursor-pointer hover:bg-[#F5F5DC] transition-all duration-300 shadow-lg border border-[#2C3E50]/20 hover:scale-110">
               <div className="text-[#2C3E50] text-xl sm:text-2xl font-bold">›</div>
             </div>
           </div>
