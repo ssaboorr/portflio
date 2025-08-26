@@ -6,6 +6,7 @@ import IndexSection from "../components/IndexSection"
 import WorkSection from "../components/WorkSection"
 import AboutSection from "../components/AboutSection"
 import ContactSection from "../components/ContactSection"
+import AnimatedBackground from "../components/AnimatedBackground"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("index")
@@ -78,8 +79,11 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-[#E8DDD4] relative overflow-hidden">
-      {/* Terminal Background */}
-      <div className="fixed inset-0 opacity-30 pointer-events-none">
+      {/* Animated Background */}
+      <AnimatedBackground />
+      
+      {/* Terminal Background (kept for compatibility) */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none z-10">
         <div className="terminal-background w-full h-full"></div>
       </div>
 
@@ -89,7 +93,7 @@ export default function Portfolio() {
         onNavClick={handleNavClick}
       />
 
-      <div className="pt-20">
+      <div className="pt-20 relative z-20">
         {/* Main Content */}
         <div className={`transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           {activeSection === "index" && <IndexSection />}

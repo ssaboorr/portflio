@@ -25,7 +25,7 @@ export default function AboutSection() {
                 <span
                   className={`inline-block transition-transform duration-1000 ${isAboutLoaded ? "translate-x-[-100px]" : ""}`}
                 >
-                  AB
+                  ABDUS
                 </span>
                 <span
                   className={`inline-block mx-4 text-[#E67E22] text-3xl md:text-4xl font-script transition-opacity duration-1000 delay-500 ${isAboutLoaded ? "opacity-100" : "opacity-0"}`}
@@ -35,7 +35,7 @@ export default function AboutSection() {
                 <span
                   className={`inline-block transition-transform duration-1000 ${isAboutLoaded ? "translate-x-[100px]" : ""}`}
                 >
-                  DUS
+                  SABOOR
                 </span>
               </div>
             </div>
